@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天边草原 · 乌拉盖与银沙湾 | 3日旅行手册</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ng-yellow: #FFDD00;
+    --bg: #0d0d0d;
+    --bg-card: #181818;
+    --bg-elevated: #1f1f1f;
+    --text: #f5f1e8;
+    --text-muted: #b8b3a6;
+    --text-dim: #7a7568;
+    --border: #2e2c26;
+    --serif: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+    --sans: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 17px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('https://aka.doubaocdn.com/s/nAFjb7EDUt');
+    background-size: cover; background-position: center; z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(13,13,13,0.55) 0%, rgba(13,13,13,0.75) 50%, rgba(13,13,13,0.92) 100%);
+    z-index: 1;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-label {
+    font-family: var(--sans); font-size: 13px; letter-spacing: 6px;
+    text-transform: uppercase; color: var(--ng-yellow); margin-bottom: 36px; font-weight: 600;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(44px, 9vw, 84px);
+    font-weight: 900; line-height: 1.12; letter-spacing: -1px; margin-bottom: 16px;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+  }
+  .hero h1 .accent { color: var(--ng-yellow); font-style: italic; }
+  .hero-sub {
+    font-family: var(--serif); font-size: clamp(18px, 3vw, 24px);
+    font-weight: 400; color: rgba(245,241,232,0.85); font-style: italic;
+    margin-bottom: 52px; line-height: 1.5;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: center;
+    font-size: 15px; color: rgba(245,241,232,0.8); letter-spacing: 1px;
+  }
+  .hero-meta span b { color: var(--text); font-weight: 600; }
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(245,241,232,0.5); z-index: 2; animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,13,13,0.94); backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+    padding: 0 24px; overflow-x: auto; white-space: nowrap;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; }
+  .nav a {
+    display: block; padding: 18px 20px; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-muted); text-decoration: none;
+    border-bottom: 2px solid transparent; transition: all 0.3s; font-weight: 500;
+  }
+  .nav a:hover { color: var(--ng-yellow); border-bottom-color: var(--ng-yellow); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+  section { padding: 88px 0 44px; }
+  .sec-num {
+    font-family: var(--serif); font-size: 14px; color: var(--ng-yellow);
+    letter-spacing: 4px; margin-bottom: 14px; font-weight: 700;
+  }
+  .sec-title {
+    font-family: var(--serif); font-size: clamp(32px, 5.5vw, 48px);
+    font-weight: 900; line-height: 1.2; margin-bottom: 18px; letter-spacing: -0.5px;
+  }
+  .sec-desc {
+    font-size: 17px; color: var(--text-muted); margin-bottom: 52px;
+    max-width: 620px; line-height: 1.85;
+  }
+  .divider { width: 64px; height: 2px; background: var(--ng-yellow); margin-bottom: 52px; }
+
+  /* Image styles */
+  .img-row { display: grid; gap: 16px; margin: 28px 0; }
+  .img-row.two { grid-template-columns: 1fr 1fr; }
+  .img-row.three { grid-template-columns: 1fr 1fr 1fr; }
+  .img-row.asym { grid-template-columns: 1.4fr 1fr; }
+  .img-row.asym-r { grid-template-columns: 1fr 1.4fr; }
+  .img-card {
+    position: relative; overflow: hidden; border-radius: 8px; background: var(--bg-card);
+  }
+  .img-card img {
+    width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease;
+  }
+  .img-card:hover img { transform: scale(1.04); }
+  .img-card.h-240 { height: 240px; }
+  .img-card.h-280 { height: 280px; }
+  .img-card.h-320 { height: 320px; }
+  .img-card.h-360 { height: 360px; }
+  .img-card.h-400 { height: 400px; }
+  .img-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 20px 16px 14px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 500; letter-spacing: 0.5px;
+  }
+  .img-full {
+    width: 100%; border-radius: 8px; overflow: hidden; margin: 28px 0; position: relative;
+    background: var(--bg-card);
+  }
+  .img-full img {
+    width: 100%; height: 420px; object-fit: cover; display: block; transition: transform 0.6s ease;
+  }
+  .img-full.contain img {
+    object-fit: contain; height: auto; max-height: 520px; width: 100%;
+  }
+  .img-full:hover img { transform: scale(1.02); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  th {
+    font-family: var(--sans); font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-dim); font-weight: 600;
+    text-align: left; padding: 18px 14px; border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 22px 14px; border-bottom: 1px solid var(--border);
+    vertical-align: top; line-height: 1.75; color: var(--text-muted);
+  }
+  tr:last-child td { border-bottom: none; }
+  .td-date {
+    font-family: var(--serif); font-weight: 700; font-size: 17px;
+    white-space: nowrap; color: var(--ng-yellow);
+  }
+  .td-day {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-dim); display: block; margin-top: 4px; font-weight: 500;
+  }
+  .td-route { font-weight: 500; color: var(--text); }
+  .td-stay { color: var(--text-muted); font-size: 15px; white-space: nowrap; }
+  .td-meal { color: var(--text-dim); font-size: 15px; white-space: nowrap; }
+
+  /* Keypoints */
+  .keypoints {
+    margin-top: 52px; padding: 36px; border: 1px solid var(--border);
+    border-left: 3px solid var(--ng-yellow); background: var(--bg-card); border-radius: 4px;
+  }
+  .keypoints h4 {
+    font-family: var(--sans); font-size: 12px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--ng-yellow); margin-bottom: 22px; font-weight: 700;
+  }
+  .keypoints p { font-size: 16px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.85; }
+  .keypoints p:last-child { margin-bottom: 0; }
+  .keypoints b { color: var(--text); font-weight: 600; }
+
+  /* Day Block - two column */
+  .day-block { margin-bottom: 80px; }
+  .day-block:last-child { margin-bottom: 0; }
+  .day-header {
+    display: flex; align-items: baseline; gap: 24px; margin-bottom: 36px;
+    padding-bottom: 22px; border-bottom: 1px solid var(--border);
+  }
+  .day-tag {
+    font-family: var(--serif); font-size: 56px; font-weight: 900;
+    color: var(--ng-yellow); line-height: 1; font-style: italic;
+  }
+  .day-info h3 { font-family: var(--serif); font-size: 26px; font-weight: 700; line-height: 1.3; }
+  .day-info p {
+    font-size: 14px; color: var(--text-dim); letter-spacing: 1px; margin-top: 6px; font-weight: 500;
+  }
+  .day-block.d4 .day-tag { color: #d4a373; }
+
+  .day-content {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start;
+  }
+  .day-single { max-width: 700px; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 1px; background: var(--border);
+  }
+  .tl-item { position: relative; padding-bottom: 26px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -32px; top: 11px;
+    width: 15px; height: 15px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--text-dim);
+  }
+  .tl-item.highlight::before { border-color: var(--ng-yellow); background: var(--ng-yellow); }
+  .tl-time {
+    font-family: var(--serif); font-size: 16px; font-weight: 700;
+    color: var(--ng-yellow); display: block; margin-bottom: 3px;
+  }
+  .tl-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
+  .tl-desc b { color: var(--text); font-weight: 600; }
+
+  /* Right column - spot cards */
+  .day-spots { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 90px; }
+  .spot-mini {
+    background: var(--bg-card); border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--border); transition: border-color 0.3s;
+  }
+  .spot-mini:hover { border-color: rgba(255,221,0,0.3); }
+  .spot-mini-gallery {
+    display: grid; gap: 2px; width: 100%; overflow: hidden; background: #000;
+  }
+  .spot-mini-gallery.count-1 { grid-template-columns: 1fr; }
+  .spot-mini-gallery.count-2 { grid-template-columns: 1fr 1fr; }
+  .spot-mini-gallery.count-3 { grid-template-columns: 1fr 1fr; }
+  .spot-mini-gallery.count-3 img:first-child { grid-column: 1 / -1; height: 200px; }
+  .spot-mini-gallery img {
+    width: 100%; height: 150px; object-fit: cover; display: block; transition: transform 0.5s;
+  }
+  .spot-mini-gallery.count-1 img { height: 240px; }
+  .spot-mini-gallery img.contain { object-fit: contain; background: #000; }
+  .spot-mini:hover .spot-mini-gallery img { transform: scale(1.04); }
+  .spot-mini-body { padding: 18px 20px; }
+  .spot-mini-tag {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ng-yellow); font-weight: 700; margin-bottom: 6px;
+  }
+  .spot-mini h4 {
+    font-family: var(--serif); font-size: 19px; font-weight: 700;
+    margin-bottom: 8px; color: var(--text);
+  }
+  .spot-mini p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* Info Box */
+  .info-box {
+    margin-top: 32px; padding: 30px 34px; border: 1px solid var(--border);
+    border-radius: 4px; background: var(--bg-card);
+  }
+  .info-box.blue { border-left: 3px solid #5b9bd5; }
+  .info-box.orange { border-left: 3px solid #e8a838; }
+  .info-box h4 {
+    font-family: var(--sans); font-size: 12px; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 18px; font-weight: 700;
+  }
+  .info-box.blue h4 { color: #5b9bd5; }
+  .info-box.orange h4 { color: #e8a838; }
+  .info-box p { font-size: 16px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.85; }
+  .info-box p:last-child { margin-bottom: 0; }
+  .info-box b { color: var(--text); font-weight: 600; }
+
+  /* Spot detail */
+  .spot {
+    margin-bottom: 64px; padding-bottom: 64px; border-bottom: 1px solid var(--border);
+  }
+  .spot:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .spot-label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-dim); margin-bottom: 10px; font-weight: 600;
+  }
+  .spot-label .star { color: var(--ng-yellow); letter-spacing: 1px; }
+  .spot h3 {
+    font-family: var(--serif); font-size: 30px; font-weight: 900;
+    margin-bottom: 24px; line-height: 1.3;
+  }
+  .spot-row { margin-bottom: 18px; }
+  .spot-row .label {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ng-yellow); font-weight: 700; display: block; margin-bottom: 6px;
+  }
+  .spot-row p { font-size: 16px; color: var(--text-muted); line-height: 1.85; }
+  .spot-row b { color: var(--text); font-weight: 600; }
+  .spot ul { list-style: none; padding: 0; }
+  .spot ul li {
+    font-size: 16px; color: var(--text-muted); padding: 7px 0 7px 22px;
+    position: relative; line-height: 1.8;
+  }
+  .spot ul li::before {
+    content: '—'; position: absolute; left: 0; color: var(--ng-yellow); font-weight: 500;
+  }
+  .spot-subtitle {
+    font-family: var(--serif); font-size: 22px; margin: 64px 0 36px;
+    color: var(--ng-yellow); font-style: italic; font-weight: 700;
+  }
+  .spot-subtitle:first-of-type { margin-top: 0; }
+
+  /* Extra table */
+  .extra-table td:first-child {
+    font-family: var(--serif); font-weight: 700; font-size: 17px;
+    color: var(--text); white-space: nowrap;
+  }
+  .extra-table .price { color: var(--ng-yellow); font-weight: 600; white-space: nowrap; font-size: 16px; }
+  .extra-table .rec { color: var(--ng-yellow); letter-spacing: 1px; }
+
+  /* Weather */
+  .weather-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); margin-bottom: 44px; border-radius: 4px; overflow: hidden;
+  }
+  .weather-cell { background: var(--bg-card); padding: 32px 20px; text-align: center; }
+  .weather-cell .day {
+    font-family: var(--serif); font-size: 24px; font-weight: 900;
+    color: var(--ng-yellow); margin-bottom: 8px;
+  }
+  .weather-cell .cond { font-size: 16px; color: var(--text); margin-bottom: 10px; font-weight: 500; }
+  .weather-cell .temp { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; }
+  .weather-cell .note { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+  /* Packing - interactive checklist */
+  .pack-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 36px 48px;
+  }
+  .pack-cat {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 24px; transition: border-color 0.3s;
+  }
+  .pack-cat:hover { border-color: rgba(255,221,0,0.2); }
+  .pack-cat-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .pack-cat h4 {
+    font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--text);
+  }
+  .pack-progress {
+    font-size: 12px; font-weight: 600; color: var(--ng-yellow);
+    background: rgba(255,221,0,0.1); padding: 3px 10px; border-radius: 20px;
+    min-width: 44px; text-align: center;
+  }
+  .pack-cat ul { list-style: none; padding: 0; }
+  .pack-item { margin-bottom: 2px; }
+  .pack-item input[type=checkbox] { display: none; }
+  .pack-item label {
+    display: flex; align-items: flex-start; gap: 12px; padding: 10px 8px;
+    font-size: 15px; color: var(--text-muted); line-height: 1.6;
+    cursor: pointer; border-radius: 4px; transition: all 0.25s;
+    user-select: none;
+  }
+  .pack-item label:hover { background: rgba(255,255,255,0.03); }
+  .pack-item .check-box {
+    flex-shrink: 0; width: 18px; height: 18px; margin-top: 3px;
+    border: 1.5px solid var(--text-dim); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s; background: transparent;
+  }
+  .pack-item .check-box svg {
+    width: 12px; height: 12px; opacity: 0; transform: scale(0.5);
+    transition: all 0.2s; stroke: var(--bg); stroke-width: 3; fill: none;
+  }
+  .pack-item input:checked + label {
+    color: var(--text-dim); opacity: 0.55;
+  }
+  .pack-item input:checked + label .check-box {
+    background: var(--ng-yellow); border-color: var(--ng-yellow);
+  }
+  .pack-item input:checked + label .check-box svg {
+    opacity: 1; transform: scale(1);
+  }
+  .pack-item input:checked + label .item-text {
+    text-decoration: line-through; text-decoration-color: rgba(255,221,0,0.4);
+  }
+  .pack-item b { color: var(--text); font-weight: 600; }
+  .pack-item input:checked + label b { color: var(--text-dim); }
+  .pack-subtitle {
+    font-family: var(--serif); font-size: 22px; margin: 56px 0 30px;
+    color: var(--ng-yellow); font-style: italic; font-weight: 700;
+  }
+  .pack-subtitle:first-of-type { margin-top: 0; }
+
+  /* Overall progress bar */
+  .pack-overall {
+    margin-bottom: 40px; padding: 24px 28px; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 8px;
+  }
+  .pack-overall-head {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;
+  }
+  .pack-overall-head span {
+    font-size: 13px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+  .pack-overall-head b { color: var(--ng-yellow); font-size: 18px; font-family: var(--serif); }
+  .pack-bar {
+    height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .pack-bar-fill {
+    height: 100%; background: linear-gradient(90deg, var(--ng-yellow), #ffc107);
+    border-radius: 3px; width: 0%; transition: width 0.5s ease;
+  }
+
+  /* Tips */
+  .tip-item { padding: 32px 0; border-bottom: 1px solid var(--border); }
+  .tip-item:last-child { border-bottom: none; }
+  .tip-num {
+    font-family: var(--serif); font-size: 13px; color: var(--ng-yellow);
+    letter-spacing: 3px; font-weight: 700; margin-bottom: 10px;
+  }
+  .tip-item h4 { font-family: var(--serif); font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+  .tip-item p { font-size: 16px; color: var(--text-muted); line-height: 1.85; }
+  .tip-item b { color: var(--text); font-weight: 600; }
+  .contacts {
+    margin-top: 52px; padding: 36px; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 4px;
+  }
+  .contacts h4 {
+    font-family: var(--sans); font-size: 12px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--ng-yellow); margin-bottom: 22px; font-weight: 700;
+  }
+  .contacts p { font-size: 16px; color: var(--text-muted); margin-bottom: 12px; font-family: var(--serif); }
+  .contacts b { color: var(--text); font-weight: 700; }
+
+  footer {
+    text-align: center; padding: 88px 24px 64px; border-top: 1px solid var(--border); margin-top: 44px;
+  }
+  footer .quote {
+    font-family: var(--serif); font-size: clamp(22px, 4vw, 34px);
+    font-style: italic; color: var(--text); max-width: 640px;
+    margin: 0 auto 28px; line-height: 1.5;
+  }
+  footer .quote::before, footer .quote::after { content: '"'; color: var(--ng-yellow); }
+  footer .meta {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .day-content { grid-template-columns: 1fr; gap: 32px; }
+    .day-spots { position: static; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .img-row.two, .img-row.three, .img-row.asym, .img-row.asym-r { grid-template-columns: 1fr; }
+    .img-card.h-240, .img-card.h-280, .img-card.h-320 { height: 220px; }
+    .img-card.h-360, .img-card.h-400 { height: 260px; }
+    .img-full img { height: 260px; }
+    .img-full.contain img { max-height: 320px; }
+    .weather-grid { grid-template-columns: 1fr; }
+    .day-header { flex-direction: column; gap: 10px; }
+    .day-tag { font-size: 42px; }
+    section { padding: 60px 0 28px; }
+    .wrap { padding: 0 20px; }
+    .keypoints, .info-box, .contacts { padding: 26px 22px; }
+    th, td { padding: 16px 10px; font-size: 15px; }
+    .spot h3 { font-size: 26px; }
+    .sec-title { font-size: 32px; }
+    .pack-cat { padding: 20px; }
+    .spot-mini-gallery.count-3 img:first-child { height: 180px; }
+    .spot-mini-gallery img { height: 130px; }
+    .spot-mini-gallery.count-1 img { height: 220px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Inner Mongolia · Travel Field Guide</div>
+    <h1>天边草原<br><span class="accent">乌拉盖</span>与银沙湾</h1>
+    <p class="hero-sub">一次解锁草原与大漠的三日旅程</p>
+    <div class="hero-meta">
+      <span><b>2026.08.20 — 08.23</b></span>
+      <span>孙明鑫 · 徐文宣</span>
+      <span>通辽市鑫达旅行社</span>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll ↓</div>
+</header>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#overview">总览</a>
+    <a href="#daily">行程</a>
+    <a href="#spots">景点</a>
+    <a href="#extra">自费</a>
+    <a href="#weather">天气</a>
+    <a href="#packing">清单</a>
+    <a href="#tips">须知</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- 01 行程总览 -->
+<section id="overview">
+  <div class="sec-num">— 01</div>
+  <h2 class="sec-title">行程总览</h2>
+  <p class="sec-desc">四天三夜，从大连出发，深入蒙东腹地。草原、湖泊、沙漠、蒙古部落，一次看尽。</p>
+  <div class="divider"></div>
+  <table>
+    <thead><tr><th>日期</th><th>路线</th><th>住宿</th><th>餐食</th></tr></thead>
+    <tbody>
+      <tr><td><span class="td-date">8/19</span><span class="td-day">周三 · 出发夜</span></td><td class="td-route">大连乘夜车前往通辽，次日早 6 点抵达</td><td class="td-stay">火车上</td><td class="td-meal">自理</td></tr>
+      <tr><td><span class="td-date">8/20</span><span class="td-day">周四 · Day 1</span></td><td class="td-route">通辽 → 扎鲁特山地草原（车览）→ 野狼谷 → 兵团小镇 → 乌拉盖湖 → 在水一方 → 乞颜部落</td><td class="td-stay">蒙古包</td><td class="td-meal">午 · 晚</td></tr>
+      <tr><td><span class="td-date">8/21</span><span class="td-day">周五 · Day 2</span></td><td class="td-route">乞颜部落 → 九曲玉龙湾 → 可汗山 → 通辽</td><td class="td-stay">通辽酒店</td><td class="td-meal">早 · 午</td></tr>
+      <tr><td><span class="td-date">8/22</span><span class="td-day">周六 · Day 3</span></td><td class="td-route">通辽 → 银沙湾沙漠 → 通辽，当晚住通辽</td><td class="td-stay">通辽酒店</td><td class="td-meal">早</td></tr>
+      <tr><td><span class="td-date">8/23</span><span class="td-day">周日 · 返程</span></td><td class="td-route">通辽 12:41（C1112）→ 沈阳 14:20 → 大连北 16:27（G714）</td><td class="td-stay">火车上</td><td class="td-meal">自理</td></tr>
+    </tbody>
+  </table>
+  <div class="keypoints">
+    <h4>关键时间节点</h4>
+    <p><b>8/20 06:00</b> 抵达通辽站，07:00 发车，中间 1 小时集合与早餐</p>
+    <p><b>8/22 17:00</b> 左右回到通辽，当晚住酒店休息</p>
+    <p><b>8/23 12:41</b> 通辽发车（C1112），沈阳中转 33 分钟，16:27 抵达大连北（G714）</p>
+    <p>全程车程约 16 小时，内蒙地广人稀，坐车时间较长，备好颈枕与零食</p>
+  </div>
+</section>
+
+<!-- 02 每日行程 -->
+<section id="daily">
+  <div class="sec-num">— 02</div>
+  <h2 class="sec-title">每日行程</h2>
+  <p class="sec-desc">左侧时间线，右侧景点实拍，一目了然。</p>
+  <div class="divider"></div>
+
+  <!-- D1 -->
+  <div class="day-block">
+    <div class="day-header"><div class="day-tag">D1</div><div class="day-info"><h3>通辽 → 乌拉盖草原</h3><p>8月20日 周四 · 车程约 5 小时 · 住乞颜部落蒙古包</p></div></div>
+    <div class="day-content">
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-time">06:00</span><span class="tl-desc">抵达通辽站，找导游集合</span></div>
+        <div class="tl-item"><span class="tl-time">06:00–07:00</span><span class="tl-desc">集合等人、简单早餐、放行李</span></div>
+        <div class="tl-item"><span class="tl-time">07:00</span><span class="tl-desc">出发前往乌拉盖，全程约 380 公里</span></div>
+        <div class="tl-item highlight"><span class="tl-time">07:00–09:30</span><span class="tl-desc">车程，途经<b>扎鲁特山地草原</b>【车览】</span></div>
+        <div class="tl-item"><span class="tl-time">09:30–10:00</span><span class="tl-desc">途中休息站</span></div>
+        <div class="tl-item"><span class="tl-time">10:00–12:00</span><span class="tl-desc">继续车程</span></div>
+        <div class="tl-item"><span class="tl-time">12:00–13:00</span><span class="tl-desc">午餐（含）</span></div>
+        <div class="tl-item highlight"><span class="tl-time">13:00–14:30</span><span class="tl-desc"><b>野狼谷景区</b>（赠玻璃栈道观狼）</span></div>
+        <div class="tl-item highlight"><span class="tl-time">14:45–15:45</span><span class="tl-desc"><b>兵团小镇</b></span></div>
+        <div class="tl-item highlight"><span class="tl-time">16:00–17:00</span><span class="tl-desc"><b>乌拉盖湖 + 在水一方</b></span></div>
+        <div class="tl-item highlight"><span class="tl-time">17:30</span><span class="tl-desc">到达<b>乞颜部落</b>，下马酒仪式</span></div>
+        <div class="tl-item"><span class="tl-time">18:00–19:30</span><span class="tl-desc">晚餐（烤全羊 / 烤羊腿）</span></div>
+        <div class="tl-item"><span class="tl-time">20:00–21:30</span><span class="tl-desc">篝火晚会（遇雨可能取消）</span></div>
+        <div class="tl-item"><span class="tl-time">21:30 后</span><span class="tl-desc">看星空，入住豪华蒙古包</span></div>
+      </div>
+      <div class="day-spots">
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-2">
+            <img src="https://aka.doubaocdn.com/s/DAhRSv79Wd" alt="扎鲁特山地草原">
+            <img src="https://aka.doubaocdn.com/s/YpSvkBBS1L" alt="扎鲁特山地草原">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">车览 · 途中</div>
+            <h4>扎鲁特山地草原</h4>
+            <p>连绵山川下清澈小溪流淌，蒙古包镶嵌草原，曾是辽代军马场。</p>
+          </div>
+        </div>
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-2">
+            <img src="https://aka.doubaocdn.com/s/iR5oddQTAK" alt="野狼谷">
+            <img src="https://aka.doubaocdn.com/s/cqVMMji8aE" alt="野狼谷">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">★ 核心景点</div>
+            <h4>乌珠穆沁野狼谷</h4>
+            <p>全国最大草原狼散养基地，《狼图腾》拍摄地，赠玻璃栈道观狼。</p>
+          </div>
+        </div>
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-1">
+            <img src="https://aka.doubaocdn.com/s/UavJi6epm9" alt="乌拉盖湖">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">湖泊 · 水鸟</div>
+            <h4>乌拉盖湖</h4>
+            <p>草原上的蓝色宝石，水面开阔，天鹅大雁时起时落，拍照绝佳。</p>
+          </div>
+        </div>
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-3">
+            <img src="https://aka.doubaocdn.com/s/8uqOPR08rs" alt="乞颜部落全景">
+            <img src="https://aka.doubaocdn.com/s/8amXTFAkyj" alt="乞颜部落蒙古包">
+            <img src="https://aka.doubaocdn.com/s/PgOlwJXyR7" alt="乞颜部落篝火晚会">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">住宿 + 体验</div>
+            <h4>乞颜部落</h4>
+            <p>下马酒、烤全羊、篝火晚会、草原星空，今晚住豪华蒙古包。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D2 -->
+  <div class="day-block">
+    <div class="day-header"><div class="day-tag">D2</div><div class="day-info"><h3>乌拉盖 → 通辽</h3><p>8月21日 周五 · 车程约 6 小时 · 住通辽市区酒店</p></div></div>
+    <div class="day-content">
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-time">05:30–06:30</span><span class="tl-desc">自愿早起看草原日出</span></div>
+        <div class="tl-item"><span class="tl-time">07:00–08:00</span><span class="tl-desc">早餐、退房</span></div>
+        <div class="tl-item"><span class="tl-time">08:00–08:20</span><span class="tl-desc">前往九曲玉龙湾（很近）</span></div>
+        <div class="tl-item highlight"><span class="tl-time">08:20–10:00</span><span class="tl-desc"><b>九曲玉龙湾</b>游玩（电瓶车 30 元/人自理）</span></div>
+        <div class="tl-item"><span class="tl-time">10:00–11:00</span><span class="tl-desc">前往可汗山（约 1 小时车程）</span></div>
+        <div class="tl-item highlight"><span class="tl-time">11:00–12:00</span><span class="tl-desc"><b>可汗山景区</b></span></div>
+        <div class="tl-item"><span class="tl-time">12:00–13:00</span><span class="tl-desc">午餐（含）</span></div>
+        <div class="tl-item"><span class="tl-time">13:00–18:00</span><span class="tl-desc">返回通辽（约 380 公里，4.5–5 小时车程）</span></div>
+        <div class="tl-item"><span class="tl-time">18:00 后</span><span class="tl-desc">入住通辽酒店，晚餐自理，可去市区吃烧烤 / 手把肉</span></div>
+      </div>
+      <div class="day-spots">
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-2">
+            <img src="https://aka.doubaocdn.com/s/U6ulgvf1PW" alt="九曲玉龙湾">
+            <img src="https://aka.doubaocdn.com/s/sNTD6brFXA" alt="九曲玉龙湾">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">★★ 最推荐</div>
+            <h4>九曲玉龙湾</h4>
+            <p>《狼图腾》最美取景地，乌拉盖河最蜿蜒河段，登高俯瞰出片率最高。</p>
+          </div>
+        </div>
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-1">
+            <img src="https://aka.doubaocdn.com/s/qUVQ5RpeCV" alt="可汗山" class="contain">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">★ 核心景点</div>
+            <h4>可汗山</h4>
+            <p>全国最大雕像群，成吉思汗与忽必烈巨型雕像，800米苍狼之路。</p>
+          </div>
+        </div>
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-2">
+            <img src="https://aka.doubaocdn.com/s/d82EsvDLul" alt="草原星空">
+            <img src="https://aka.doubaocdn.com/s/a10irVNLD3" alt="草原星空">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">D1 夜晚</div>
+            <h4>草原星空</h4>
+            <p>无光污染的纯净夜空，银河就在头顶，适合深夜拍照。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D3 -->
+  <div class="day-block">
+    <div class="day-header"><div class="day-tag">D3</div><div class="day-info"><h3>通辽 → 银沙湾沙漠 → 通辽</h3><p>8月22日 周六 · 车程约 5 小时 · 住通辽市区酒店</p></div></div>
+    <div class="day-content">
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-time">07:00–08:00</span><span class="tl-desc">早餐、退房，行李放车上</span></div>
+        <div class="tl-item"><span class="tl-time">08:00–10:30</span><span class="tl-desc">前往银沙湾（约 140 公里，2–2.5 小时）</span></div>
+        <div class="tl-item highlight"><span class="tl-time">10:30–14:30</span><span class="tl-desc"><b>银沙湾沙漠</b>游玩（4 小时），含滑沙不限次、射箭 10 支</span></div>
+        <div class="tl-item"><span class="tl-time">14:30–15:00</span><span class="tl-desc">简单午餐（D3 不含正餐，自备零食）</span></div>
+        <div class="tl-item"><span class="tl-time">15:00–17:00</span><span class="tl-desc">返回通辽（2–2.5 小时）</span></div>
+        <div class="tl-item"><span class="tl-time">17:00–17:30</span><span class="tl-desc">送到酒店办理入住，晚餐自理</span></div>
+      </div>
+      <div class="day-spots">
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-1">
+            <img src="https://aka.doubaocdn.com/s/NmZMtJH2bE" alt="银沙湾沙漠">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">★★ 最推荐 · 东北第一漠</div>
+            <h4>银沙湾沙漠</h4>
+            <p>沙质纯白细腻，沙峰高达70-80米，赠滑沙不限次+射箭。</p>
+          </div>
+        </div>
+        <div class="spot-mini">
+          <div class="spot-mini-gallery count-1">
+            <img src="https://aka.doubaocdn.com/s/tWAXdPjEIQ" alt="沙漠骑骆驼">
+          </div>
+          <div class="spot-mini-body">
+            <div class="spot-mini-tag">自费 · 100元/人</div>
+            <h4>沙漠骑骆驼</h4>
+            <p>双峰驼穿行沙海，拍照出片，温顺安全，约15分钟。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D4 -->
+  <div class="day-block d4">
+    <div class="day-header"><div class="day-tag">D4</div><div class="day-info"><h3>通辽 → 沈阳 → 大连北</h3><p>8月23日 周日 · 返程日</p></div></div>
+    <div class="day-single">
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-time">上午</span><span class="tl-desc">酒店早餐、退房，自由活动。可在通辽市区逛逛、买特产（牛肉干、奶食品）</span></div>
+        <div class="tl-item"><span class="tl-time">11:30–12:00</span><span class="tl-desc">前往通辽站，预留充足时间安检进站</span></div>
+        <div class="tl-item highlight"><span class="tl-time">12:41–14:20</span><span class="tl-desc"><b>C1112</b> 通辽 → 沈阳，历时 1 小时 39 分，二等座</span></div>
+        <div class="tl-item"><span class="tl-time">14:20–14:53</span><span class="tl-desc">沈阳站中转，<b>中转时间 33 分钟</b>，走便捷换乘通道，不要出站</span></div>
+        <div class="tl-item highlight"><span class="tl-time">14:53–16:27</span><span class="tl-desc"><b>G714</b> 沈阳 → 大连北，历时 1 小时 34 分，二等座</span></div>
+        <div class="tl-item"><span class="tl-time">16:27</span><span class="tl-desc">抵达大连北站，全程结束</span></div>
+      </div>
+      <div class="info-box blue">
+        <h4>车票信息</h4>
+        <p><b>C1112</b>（通辽→沈阳）：徐文宣 05车14D（过道）¥100；孙明鑫 05车14F（靠窗）¥100</p>
+        <p><b>G714</b>（沈阳→大连北）：徐文宣 04车15B ¥208；孙明鑫 二等座 ¥208</p>
+        <p>两人返程车费合计：约 <b>¥616</b></p>
+      </div>
+      <div class="info-box orange">
+        <h4>返程注意</h4>
+        <p>沈阳中转仅 33 分钟，<b>不要出站</b>，走站内便捷换乘通道，提前准备好两段车票的身份证 / 二维码</p>
+        <p>如第一段列车晚点导致赶不上第二段，立即找列车长或车站工作人员开具客运记录，可免费改签后续车次</p>
+        <p>退房前检查随身物品，尤其是充电器、身份证、手机</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 景点详解 -->
+<section id="spots">
+  <div class="sec-num">— 03</div>
+  <h2 class="sec-title">景点详解</h2>
+  <p class="sec-desc">九个景点的详细介绍，从车览的山地草原到东北第一漠。</p>
+  <div class="divider"></div>
+
+  <div class="spot-subtitle">Day 1 · 草原腹地</div>
+  <div class="img-full"><img src="https://aka.doubaocdn.com/s/WaZVXh8YBb" alt="乌拉盖草原全景"><div class="img-caption">乌拉盖草原 · 天边草原</div></div>
+
+  <div class="spot">
+    <div class="spot-label">车览 · 途中</div>
+    <h3>扎鲁特山地草原</h3>
+    <div class="img-row two">
+      <div class="img-card h-320"><img src="https://aka.doubaocdn.com/s/DAhRSv79Wd" alt="扎鲁特山地草原"><div class="img-caption">扎鲁特山地草原 · 军马场</div></div>
+      <div class="img-card h-320"><img src="https://aka.doubaocdn.com/s/YpSvkBBS1L" alt="扎鲁特山地草原"><div class="img-caption">连绵山川下的草原风光</div></div>
+    </div>
+    <div class="spot-row"><span class="label">定位</span><p>途中路过，不停车，车上欣赏。</p></div>
+    <div class="spot-row"><span class="label">看点</span><p>连绵山川下清澈小溪流淌，蒙古包镶嵌在草原上。这里曾是辽代誉洲古城将士驯养战马的地方，也叫"军马场"。远处马头琴声伴随清风，科尔沁草原风光尽收眼底。</p></div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-label"><span class="star">★ 核心景点</span></div>
+    <h3>乌珠穆沁野狼谷</h3>
+    <div class="img-row two">
+      <div class="img-card h-320"><img src="https://aka.doubaocdn.com/s/iR5oddQTAK" alt="野狼谷"><div class="img-caption">野狼谷 · 草原狼散养基地</div></div>
+      <div class="img-card h-320"><img src="https://aka.doubaocdn.com/s/cqVMMji8aE" alt="野狼谷"><div class="img-caption">《狼图腾》拍摄地</div></div>
+    </div>
+    <div class="spot-row"><span class="label">定位</span><p>全国最大草原狼散养基地，电影《狼图腾》拍摄地。</p></div>
+    <div class="spot-row"><span class="label">看点</span><ul>
+      <li>200 亩野生放养区，散养 38 匹野狼，可乘车观赏或喂食</li>
+      <li>20 亩小狼驯化基地，可近距离接触小狼</li>
+      <li><b>赠送玻璃栈道</b>，高空零距离观赏狼群</li>
+    </ul></div>
+    <div class="spot-row"><span class="label">游玩时间</span><p>1–1.5 小时</p></div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-label">红色年代 · 拍照打卡</div>
+    <h3>兵团小镇</h3>
+    <div class="spot-row"><span class="label">定位</span><p>原内蒙古生产建设兵团六师五十一团团部所在地，红色年代主题小镇。</p></div>
+    <div class="spot-row"><span class="label">看点</span><ul>
+      <li>青灰色墙体、古朴门窗、激昂标语，充满年代烙印</li>
+      <li>兵团司令部、邮局、兵团礼堂等建筑保存完好</li>
+      <li>红旗广场上有各式兵团文化标语和雕塑，适合拍照打卡</li>
+    </ul></div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-label">湖泊 · 水鸟</div>
+    <h3>乌拉盖湖</h3>
+    <div class="img-full"><img src="https://aka.doubaocdn.com/s/UavJi6epm9" alt="乌拉盖湖"><div class="img-caption">乌拉盖湖 · 草原上的蓝色宝石</div></div>
+    <div class="spot-row"><span class="label">定位</span><p>亚洲最大内陆湖（景区宣传口径），草原上的蓝色宝石。</p></div>
+    <div class="spot-row"><span class="label">看点</span><ul>
+      <li>水肥草美、牛羊成群，水面开阔，野花遍野</li>
+      <li>盛产鲤鱼、鲫鱼、鲢鱼等天然淡水鱼</li>
+      <li>水面上天鹅、大雁及各种水鸟时起时落</li>
+    </ul></div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-label">小众观景</div>
+    <h3>在水一方</h3>
+    <div class="spot-row"><span class="label">定位</span><p>乌拉盖河季节性河段，小众观景点。</p></div>
+    <div class="spot-row"><span class="label">看点</span><p>乌拉盖河环绕在高尧乌拉山脚下，河北岸湿地草原平坦如画，河南岸怪柳丛生幽深神秘。</p></div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-label">住宿 + 体验 · 爸爸去哪儿拍摄地</div>
+    <h3>乞颜部落</h3>
+    <div class="img-row three">
+      <div class="img-card h-240"><img src="https://aka.doubaocdn.com/s/8amXTFAkyj" alt="乞颜部落蒙古包"><div class="img-caption">豪华蒙古包</div></div>
+      <div class="img-card h-240"><img src="https://aka.doubaocdn.com/s/8uqOPR08rs" alt="乞颜部落"><div class="img-caption">部落全景</div></div>
+      <div class="img-card h-240"><img src="https://aka.doubaocdn.com/s/PgOlwJXyR7" alt="篝火晚会"><div class="img-caption">篝火晚会</div></div>
+    </div>
+    <div class="spot-row"><span class="label">体验项目</span><ul>
+      <li><b>下马酒仪式</b>：蒙古人款待贵客的最高礼节</li>
+      <li><b>烤全羊晚餐</b>：不足 40 人改为每桌一份烤羊腿或烤羊排</li>
+      <li><b>篝火晚会</b>：景区统一组织，遇天气原因可能取消</li>
+      <li><b>草原星空</b>：夜晚银河系就在头顶</li>
+    </ul></div>
+    <div class="spot-row"><span class="label">住宿</span><p>豪华蒙古包标间，独立卫浴、空调。不提供大床房。</p></div>
+  </div>
+
+  <div class="spot-subtitle">Day 2 · 九曲与可汗山</div>
+
+  <div class="spot">
+    <div class="spot-label"><span class="star">★★ 最推荐 · 狼图腾取景地</span></div>
+    <h3>九曲玉龙湾</h3>
+    <div class="img-row asym">
+      <div class="img-card h-360"><img src="https://aka.doubaocdn.com/s/U6ulgvf1PW" alt="九曲玉龙湾"><div class="img-caption">九曲河道 · 锡林郭勒草原</div></div>
+      <div class="img-card h-360"><img src="https://aka.doubaocdn.com/s/sNTD6brFXA" alt="九曲玉龙湾"><div class="img-caption">《狼图腾》最美取景地</div></div>
+    </div>
+    <div class="spot-row"><span class="label">定位</span><p>电影《狼图腾》拍摄基地中<b>景色最美的取景地</b>。</p></div>
+    <div class="spot-row"><span class="label">看点</span><ul>
+      <li>乌拉盖河最为蜿蜒曲折的河段，也是最迷人的一段</li>
+      <li>河边绿草茵茵、野花丛生、牛羊成群，沿河床红柳装点</li>
+      <li>登高俯瞰九曲河道，整个行程出片率最高的地方</li>
+    </ul></div>
+    <div class="spot-row"><span class="label">费用</span><p>景区电瓶车 30 元/人自理（建议坐）</p></div>
+  </div>
+
+  <div class="spot">
+    <div class="spot-label"><span class="star">★ 核心景点 · 蒙元文化</span></div>
+    <h3>可汗山</h3>
+    <div class="img-full contain"><img src="https://aka.doubaocdn.com/s/qUVQ5RpeCV" alt="可汗山"><div class="img-caption">可汗山 · 全国最大雕像群</div></div>
+    <div class="spot-row"><span class="label">定位</span><p>全国最大雕像群，蒙元文化主题景区，地处三大草原交汇地带。</p></div>
+    <div class="spot-row"><span class="label">看点</span><ul>
+      <li>山顶有元太祖成吉思汗和元世祖忽必烈的巨型雕像</li>
+      <li>景区由山门、苍狼之路、蒙元兵阵、蒙元帝王雕塑群四大部分组成</li>
+      <li>800 米"苍狼之路"两侧伫立 26 根 2–4 米高石人柱</li>
+    </ul></div>
+  </div>
+
+  <div class="spot-subtitle">草原星空</div>
+  <div class="img-row two" style="margin-bottom:64px;">
+    <div class="img-card h-360"><img src="https://aka.doubaocdn.com/s/d82EsvDLul" alt="草原星空银河"><div class="img-caption">草原星空 · 银河就在头顶</div></div>
+    <div class="img-card h-360"><img src="https://aka.doubaocdn.com/s/a10irVNLD3" alt="草原星空"><div class="img-caption">无光污染的纯净夜空</div></div>
+  </div>
+
+  <div class="spot-subtitle">Day 3 · 东北第一漠</div>
+
+  <div class="spot">
+    <div class="spot-label"><span class="star">★★ 最推荐 · 东北第一漠</span></div>
+    <h3>银沙湾沙漠</h3>
+    <div class="img-row asym-r">
+      <div class="img-card h-400"><img src="https://aka.doubaocdn.com/s/tWAXdPjEIQ" alt="银沙湾沙漠骆驼"><div class="img-caption">沙漠骑骆驼</div></div>
+      <div class="img-card h-400"><img src="https://aka.doubaocdn.com/s/NmZMtJH2bE" alt="银沙湾沙漠"><div class="img-caption">银沙湾 · 东北第一漠</div></div>
+    </div>
+    <div class="spot-row"><span class="label">定位</span><p>东北最大沙漠旅游区，位于通辽市库伦旗。</p></div>
+    <div class="spot-row"><span class="label">看点</span><ul>
+      <li>沙质纯白细腻，沙峰高达 70–80 米，宛如卷起的巨浪</li>
+      <li>沙山沙峰、沙谷沙梁、丘陵沟壑连绵起伏</li>
+      <li>沙柳点缀沙海，展现沙漠中顽强的生命力</li>
+    </ul></div>
+    <div class="spot-row"><span class="label">赠送项目</span><ul>
+      <li><b>网红滑沙</b>：不限时间次数，从沙丘俯冲超解压</li>
+      <li><b>射箭</b>：每人 10 支箭</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 04 自费项目 -->
+<section id="extra">
+  <div class="sec-num">— 04</div>
+  <h2 class="sec-title">自费项目</h2>
+  <p class="sec-desc">六项自愿选择的体验项目，精选两到三个即可。</p>
+  <div class="divider"></div>
+  <table class="extra-table">
+    <thead><tr><th>项目</th><th>价格</th><th>说明</th><th>推荐</th></tr></thead>
+    <tbody>
+      <tr><td>草原穿越</td><td class="price">188 元/人</td><td>越野车深入草原腹地，走普通车到不了的原生态草场</td><td class="rec">★★★</td></tr>
+      <tr><td>沙漠大脚怪</td><td class="price">150 元/人</td><td>改装大轮胎越野车，冲沙峰、漂移，最刺激</td><td class="rec">★★★</td></tr>
+      <tr><td>乞颜传奇情景剧</td><td class="price">180 元/人</td><td>蒙古历史主题大型演出，D1 晚上看</td><td class="rec">★★</td></tr>
+      <tr><td>沙漠骑骆驼</td><td class="price">100 元/人</td><td>双峰驼穿行沙海，拍照出片，约 15 分钟</td><td class="rec">★★</td></tr>
+      <tr><td>那达慕大会</td><td class="price">68 元/人</td><td>小型表演版那达慕，摔跤、赛马、射箭</td><td class="rec">★</td></tr>
+      <tr><td>牧户做客</td><td class="price">68 元/人</td><td>到牧民家喝奶茶、吃奶制品、体验牧民生活</td><td class="rec">★</td></tr>
+    </tbody>
+  </table>
+  <div class="keypoints">
+    <h4>组合建议</h4>
+    <p><b>预算有限：</b>草原穿越 188 元（一个就够）</p>
+    <p><b>预算适中：</b>草原穿越 188 + 沙漠大脚怪 150 = 338 元</p>
+    <p>不建议全加，所有自费项目均为自愿，导游不得强迫。</p>
+  </div>
+</section>
+
+<!-- 05 天气与穿衣 -->
+<section id="weather">
+  <div class="sec-num">— 05</div>
+  <h2 class="sec-title">天气与穿衣</h2>
+  <p class="sec-desc">八月的蒙东，白天如夏，入夜如秋。昼夜温差可达 12–15℃。</p>
+  <div class="divider"></div>
+  <div class="weather-grid">
+    <div class="weather-cell"><div class="day">D1 · 20日</div><div class="cond">小雨转多云</div><div class="temp">16 – 28℃</div><div class="note">草原小雨影响不大，带雨衣</div></div>
+    <div class="weather-cell"><div class="day">D2 · 21日</div><div class="cond">小雨转多云</div><div class="temp">17 – 27℃</div><div class="note">玉龙湾拍照光线可能差</div></div>
+    <div class="weather-cell"><div class="day">D3 · 22日</div><div class="cond">小雨转多云</div><div class="temp">17 – 28℃</div><div class="note">沙漠下雨滑沙受影响</div></div>
+  </div>
+  <h3 style="font-family:var(--serif);font-size:22px;margin-bottom:28px;color:var(--text);font-weight:700;">洋葱式穿衣法</h3>
+  <div class="pack-grid">
+    <div class="pack-cat"><h4>上身</h4><ul>
+      <li><b>短袖 T 恤</b>（白天 27-28℃）</li>
+      <li><b>薄长袖防晒衣</b>（紫外线强）</li>
+      <li><b>抓绒衣 / 薄卫衣</b>（早晚加一层）</li>
+      <li><b>冲锋衣 / 薄羽绒服</b>（晚上看星空）</li>
+    </ul></div>
+    <div class="pack-cat"><h4>下身与鞋</h4><ul>
+      <li><b>长裤为主</b>（防蚊防晒防骆驼刺）</li>
+      <li>带一条短裤中午换</li>
+      <li><b>舒适运动鞋 / 徒步鞋</b></li>
+      <li>凉鞋 / 拖鞋（洗澡用）</li>
+    </ul></div>
+    <div class="pack-cat"><h4>配件</h4><ul>
+      <li><b>遮阳帽 + 墨镜</b></li>
+      <li>薄围巾 / 魔术头巾</li>
+      <li><b>雨衣</b>（非雨伞，草原风大）</li>
+      <li>怕冷的带小毛毯或暖贴</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 06 行李清单（可交互） -->
+<section id="packing">
+  <div class="sec-num">— 06</div>
+  <h2 class="sec-title">行李清单</h2>
+  <p class="sec-desc">点击方框打勾，实时跟踪打包进度。</p>
+  <div class="divider"></div>
+
+  <div class="pack-overall">
+    <div class="pack-overall-head">
+      <span>总打包进度</span>
+      <b><span id="packChecked">0</span> / <span id="packTotal">0</span> 已准备</b>
+    </div>
+    <div class="pack-bar"><div class="pack-bar-fill" id="packBarFill"></div></div>
+  </div>
+
+  <div class="pack-subtitle">必带 · 不带走不了</div>
+  <div class="pack-grid" data-pack-group>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>证件与票据</h4><span class="pack-progress">0/4</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p1"><label for="p1"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>身份证原件</b>（住酒店、进景区、坐火车必查）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p2"><label for="p2"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">火车票 / 购票记录截图</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p3"><label for="p3"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">旅游合同电子版 / 截图</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p4"><label for="p4"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">导游联系方式（赵涛 15847518654）</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>电子设备</h4><span class="pack-progress">0/4</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p5"><label for="p5"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>手机 + 充电器</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p6"><label for="p6"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>充电宝</b>（20000mAh，蒙古包插座少）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p7"><label for="p7"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">充电线（多带一根备用）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p8"><label for="p8"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">耳机（车上看剧听歌）</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pack-subtitle">衣物 · 洋葱式穿搭</div>
+  <div class="pack-grid" data-pack-group>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>上身（按层带）</h4><span class="pack-progress">0/5</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p9"><label for="p9"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>短袖 T 恤 × 3</b>（白天 27-28℃）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p10"><label for="p10"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>薄长袖防晒衣 × 1</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p11"><label for="p11"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>抓绒衣 / 薄卫衣 × 1</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p12"><label for="p12"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>冲锋衣 / 薄羽绒服 × 1</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p13"><label for="p13"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">换洗内衣 × 4</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>下身</h4><span class="pack-progress">0/4</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p14"><label for="p14"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>长裤 × 2</b>（防蚊防晒防骆驼刺）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p15"><label for="p15"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">短裤 × 1</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p16"><label for="p16"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">内裤 × 4</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p17"><label for="p17"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">袜子 × 4 双</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>鞋类</h4><span class="pack-progress">0/3</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p18"><label for="p18"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>舒适运动鞋 / 徒步鞋</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p19"><label for="p19"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">凉鞋 / 拖鞋</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p20"><label for="p20"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">鞋套 / 防沙鞋套</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>配件</h4><span class="pack-progress">0/5</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p21"><label for="p21"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>遮阳帽</b>（宽檐）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p22"><label for="p22"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>墨镜</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p23"><label for="p23"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">薄围巾 / 魔术头巾</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p24"><label for="p24"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>雨衣</b>（非雨伞）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p25"><label for="p25"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">腰带（可选）</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pack-subtitle">卫生用品</div>
+  <div class="pack-grid" data-pack-group>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>一次性用品</h4><span class="pack-progress">0/6</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p26"><label for="p26"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>一次性床单 × 2</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p27"><label for="p27"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>一次性枕套 × 2</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p28"><label for="p28"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">一次性被套 × 1</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p29"><label for="p29"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>一次性马桶垫 × 1 包</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p30"><label for="p30"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">一次性毛巾 × 4</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p31"><label for="p31"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">一次性内裤 × 4</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>洗漱包</h4><span class="pack-progress">0/8</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p32"><label for="p32"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">牙刷牙膏</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p33"><label for="p33"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">洗面奶、沐浴露洗发水</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p34"><label for="p34"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>毛巾 / 速干毛巾</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p35"><label for="p35"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">梳子、剃须刀</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p36"><label for="p36"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">护肤品小样</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p37"><label for="p37"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>润唇膏</b>（必带）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p38"><label for="p38"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">护手霜</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p39"><label for="p39"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">纸巾 + 湿纸巾</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>防护与清洁</h4><span class="pack-progress">0/6</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p40"><label for="p40"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>防晒霜 SPF50+</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p41"><label for="p41"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>驱蚊水</b>（DEET/派卡瑞丁）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p42"><label for="p42"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">风油精 / 清凉油</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p43"><label for="p43"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">口罩 × 3</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p44"><label for="p44"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">密封袋 / 保鲜袋</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p45"><label for="p45"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">小瓶免洗洗手液</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pack-subtitle">药品 · 有备无患</div>
+  <div class="pack-grid" data-pack-group>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>常备药</h4><span class="pack-progress">0/6</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p46"><label for="p46"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>晕车药 / 晕车贴</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p47"><label for="p47"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">感冒药</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p48"><label for="p48"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>肠胃药</b>（蒙脱石散、藿香正气）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p49"><label for="p49"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">布洛芬 / 对乙酰氨基酚</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p50"><label for="p50"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">创可贴 × 5</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p51"><label for="p51"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">消毒湿巾 / 碘伏棉签</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>按需携带</h4><span class="pack-progress">0/4</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p52"><label for="p52"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">个人常用药</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p53"><label for="p53"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">健胃消食片</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p54"><label for="p54"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">降火凉茶泡腾片</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p55"><label for="p55"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">暖贴 × 3</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pack-subtitle">食品与杂物</div>
+  <div class="pack-grid" data-pack-group>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>路上吃的</h4><span class="pack-progress">0/5</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p56"><label for="p56"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>零食</b>（巧克力、牛肉干、能量棒）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p57"><label for="p57"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">泡面 / 自热米饭 × 2</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p58"><label for="p58"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">口香糖 / 薄荷糖</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p59"><label for="p59"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">矿泉水</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p60"><label for="p60"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>保温杯</b></span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>提升体验小物</h4><span class="pack-progress">0/6</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p61"><label for="p61"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>U 型颈枕</b>（救命级）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p62"><label for="p62"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>眼罩 + 耳塞</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p63"><label for="p63"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">小毛毯 / 披肩</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p64"><label for="p64"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">折叠伞（备用）</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p65"><label for="p65"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">小包纸巾 + 湿巾</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p66"><label for="p66"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">塑料袋 × 3</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>财物</h4><span class="pack-progress">0/3</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p67"><label for="p67"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text"><b>现金 200–500 元</b></span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p68"><label for="p68"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">银行卡</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p69"><label for="p69"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">手机支付绑好卡</span></label></li>
+      </ul>
+    </div>
+    <div class="pack-cat" data-pack-cat>
+      <div class="pack-cat-head"><h4>拍照装备（可选）</h4><span class="pack-progress">0/3</span></div>
+      <ul>
+        <li class="pack-item"><input type="checkbox" id="p70"><label for="p70"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">相机 + 备用电池</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p71"><label for="p71"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">自拍杆 / 手机支架</span></label></li>
+        <li class="pack-item"><input type="checkbox" id="p72"><label for="p72"><span class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="item-text">相机防沙套 / 密封袋</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 07 重要提醒 -->
+<section id="tips">
+  <div class="sec-num">— 07</div>
+  <h2 class="sec-title">出行须知</h2>
+  <p class="sec-desc">五条关键提醒，关乎权益与安全。</p>
+  <div class="divider"></div>
+  <div class="tip-item"><div class="tip-num">01</div><h4>关于购物</h4><p>合同约定不指定购物场所、不安排另行付费项目。如遇导游强迫购物或自费，保留证据，可拨打 <b>12301</b> 旅游投诉热线。</p></div>
+  <div class="tip-item"><div class="tip-num">02</div><h4>关于退改</h4><p>行程前 6–4 日取消扣 20%，前 3–1 日扣 40%，当日取消扣 60%。</p></div>
+  <div class="tip-item"><div class="tip-num">03</div><h4>关于行程调整</h4><p>因天气、路况等不可抗力，导游可能调整游览顺序，但不应减少景点。</p></div>
+  <div class="tip-item"><div class="tip-num">04</div><h4>关于烤全羊</h4><p>不足 40 人改为每桌一份烤羊腿或烤羊排，属正常情况。</p></div>
+  <div class="tip-item"><div class="tip-num">05</div><h4>保留证据</h4><p>和导游 / 旅行社的微信聊天记录、通话录音、付款凭证、合同都留好。</p></div>
+  <div class="contacts">
+    <h4>紧急联系</h4>
+    <p>旅行社联系人：<b>赵涛 15847518654</b></p>
+    <p>全国旅游投诉热线：<b>12301</b></p>
+    <p>报警：<b>110</b>　|　急救：<b>120</b></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p class="quote">去赴一场日落、晚霞、草原与湖泊之约</p>
+  <p class="meta">天边草原乌拉盖 · 2026.08.20 – 08.23</p>
+</footer>
+
+<script>
+// 打包清单交互
+(function() {
+  const allCheckboxes = document.querySelectorAll('.pack-item input[type=checkbox]');
+  const totalEl = document.getElementById('packTotal');
+  const checkedEl = document.getElementById('packChecked');
+  const barFill = document.getElementById('packBarFill');
+
+  totalEl.textContent = allCheckboxes.length;
+
+  function updateProgress() {
+    const checked = document.querySelectorAll('.pack-item input[type=checkbox]:checked').length;
+    const total = allCheckboxes.length;
+    checkedEl.textContent = checked;
+    const pct = total > 0 ? (checked / total * 100) : 0;
+    barFill.style.width = pct + '%';
+
+    // 更新每个分类的进度
+    document.querySelectorAll('[data-pack-cat]').forEach(function(cat) {
+      const catChecks = cat.querySelectorAll('input[type=checkbox]');
+      const catChecked = cat.querySelectorAll('input[type=checkbox]:checked').length;
+      const progressEl = cat.querySelector('.pack-progress');
+      if (progressEl) {
+        progressEl.textContent = catChecked + '/' + catChecks.length;
+      }
+    });
+
+    // 保存到 localStorage
+    const states = {};
+    allCheckboxes.forEach(function(cb) {
+      if (cb.id) states[cb.id] = cb.checked;
+    });
+    try { localStorage.setItem('packingList', JSON.stringify(states)); } catch(e) {}
+  }
+
+  // 恢复状态
+  try {
+    const saved = JSON.parse(localStorage.getItem('packingList') || '{}');
+    allCheckboxes.forEach(function(cb) {
+      if (saved[cb.id]) cb.checked = true;
+    });
+  } catch(e) {}
+
+  allCheckboxes.forEach(function(cb) {
+    cb.addEventListener('change', updateProgress);
+  });
+
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>
