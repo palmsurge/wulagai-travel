@@ -308,6 +308,27 @@
     padding: 18px 24px; background: var(--bg-card); border: 1px solid var(--border);
     border-radius: 8px;
   }
+  /* 导游集合信息卡 */
+  .guide-info-card {
+    background: linear-gradient(135deg, rgba(255,221,0,0.08), rgba(255,221,0,0.02));
+    border: 1px solid rgba(255,221,0,0.25); border-radius: 10px;
+    padding: 20px 24px; margin-bottom: 28px;
+  }
+  .guide-info-row {
+    display: flex; gap: 32px; margin-bottom: 12px;
+  }
+  .guide-info-row:last-child { margin-bottom: 0; }
+  .guide-info-item { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .guide-info-label {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600;
+  }
+  .guide-info-value {
+    font-size: 16px; color: var(--text); font-weight: 600;
+    font-family: var(--sans);
+  }
+  .guide-info-value a { color: var(--ng-yellow); text-decoration: none; }
+  .guide-info-value a:hover { text-decoration: underline; }
   .daily-overall-progress .label {
     font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
     color: var(--text-dim); font-weight: 600; white-space: nowrap;
@@ -566,6 +587,8 @@
     th, td { padding: 16px 10px; font-size: 15px; }
     .spot h3 { font-size: 26px; }
     .sec-title { font-size: 32px; }
+    .guide-info-row { flex-direction: column; gap: 14px; }
+    .guide-info-card { padding: 18px 20px; }
     .pack-cat { padding: 20px; }
     .spot-mini-gallery.count-3 img:first-child { height: 180px; }
     .spot-mini-gallery img { height: 130px; }
@@ -777,6 +800,38 @@
   <h2 class="sec-title">每日行程</h2>
   <p class="sec-desc">点击时间线上的圆点打卡，实时追踪行程进度。</p>
   <div class="divider"></div>
+  <div class="guide-info-card">
+    <div class="guide-info-row">
+      <div class="guide-info-item">
+        <span class="guide-info-label">导游</span>
+        <span class="guide-info-value">小李</span>
+      </div>
+      <div class="guide-info-item">
+        <span class="guide-info-label">电话</span>
+        <span class="guide-info-value"><a href="tel:15149941118">151 4994 1118</a></span>
+      </div>
+    </div>
+    <div class="guide-info-row">
+      <div class="guide-info-item">
+        <span class="guide-info-label">集合时间</span>
+        <span class="guide-info-value">8月20日 早上 7:00</span>
+      </div>
+      <div class="guide-info-item">
+        <span class="guide-info-label">集合地点</span>
+        <span class="guide-info-value">通辽火车站东侧 · 源源宾馆门口</span>
+      </div>
+    </div>
+    <div class="guide-info-row">
+      <div class="guide-info-item">
+        <span class="guide-info-label">车牌号</span>
+        <span class="guide-info-value">蒙 G67393</span>
+      </div>
+      <div class="guide-info-item">
+        <span class="guide-info-label">座位号</span>
+        <span class="guide-info-value">31 / 32</span>
+      </div>
+    </div>
+  </div>
   <div class="daily-overall-progress">
     <span class="label">总进度</span>
     <div class="bar"><div class="fill" id="overall-progress-fill"></div></div>
