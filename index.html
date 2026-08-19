@@ -84,19 +84,25 @@
   /* Nav */
   .nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(13,13,13,0.94); backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
-    padding: 0 24px; overflow-x: auto; white-space: nowrap;
+    background: rgba(13,13,13,0.96); backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border);
+    padding: 10px 24px; overflow-x: auto; white-space: nowrap;
     -ms-overflow-style: none; scrollbar-width: none;
   }
   .nav::-webkit-scrollbar { display: none; }
-  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; }
+  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 4px; align-items: center; }
   .nav a {
-    display: block; padding: 18px 20px; font-size: 13px; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--text-muted); text-decoration: none;
-    border-bottom: 2px solid transparent; transition: all 0.3s; font-weight: 500;
+    display: block; padding: 10px 18px; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-dim); text-decoration: none;
+    border-radius: 20px; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500; position: relative; border: 1px solid transparent;
   }
-  .nav a:hover { color: var(--ng-yellow); border-bottom-color: var(--ng-yellow); }
+  .nav a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  .nav a.active {
+    color: var(--bg); background: var(--ng-yellow); font-weight: 700;
+    box-shadow: 0 2px 16px rgba(255,221,0,0.25);
+  }
+  .nav a.active:hover { color: var(--bg); background: var(--ng-yellow); }
 
   .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
   section { padding: 88px 0 44px; }
@@ -191,8 +197,8 @@
   .day-block { margin-bottom: 80px; }
   .day-block:last-child { margin-bottom: 0; }
   .day-header {
-    display: flex; align-items: baseline; gap: 24px; margin-bottom: 36px;
-    padding-bottom: 22px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 24px; margin-bottom: 36px;
+    padding-bottom: 22px; border-bottom: 1px solid var(--border); flex-wrap: wrap;
   }
   .day-tag {
     font-family: var(--serif); font-size: 56px; font-weight: 900;
@@ -222,13 +228,100 @@
     width: 15px; height: 15px; border-radius: 50%;
     background: var(--bg); border: 2px solid var(--text-dim);
   }
-  .tl-item.highlight::before { border-color: var(--ng-yellow); background: var(--ng-yellow); }
+  .tl-item.highlight::before { border-color: var(--text-dim); background: var(--bg); }
   .tl-time {
     font-family: var(--serif); font-size: 16px; font-weight: 700;
     color: var(--ng-yellow); display: block; margin-bottom: 3px;
   }
+  .tl-item.highlight .tl-time::before {
+    content: '★'; color: var(--ng-yellow); font-size: 12px;
+    margin-right: 6px; vertical-align: middle; opacity: 0.9;
+  }
+  .tl-item.highlight.completed .tl-time::before { opacity: 0.4; }
+  .tl-key-label {
+    display: inline-block; font-size: 10px; letter-spacing: 1px;
+    color: var(--ng-yellow); background: rgba(255,221,0,0.1);
+    padding: 2px 8px; border-radius: 10px; margin-left: 8px;
+    font-weight: 600; vertical-align: middle;
+  }
   .tl-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
   .tl-desc b { color: var(--text); font-weight: 600; }
+  /* Interactive timeline */
+  .tl-item {
+    cursor: pointer; transition: all 0.3s; padding: 6px 10px 6px 0;
+    margin-right: -10px; border-radius: 6px; position: relative;
+  }
+  .tl-item::before { left: -32px; }
+  .tl-item:hover { background: rgba(255,255,255,0.03); }
+  .tl-item:hover::before { transform: scale(1.25); box-shadow: 0 0 0 4px rgba(255,221,0,0.1); }
+  .tl-item::before { transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .tl-item.completed { background: rgba(255,221,0,0.04); }
+  .tl-item.completed::before {
+    background: var(--ng-yellow); border-color: var(--ng-yellow);
+    box-shadow: 0 0 12px rgba(255,221,0,0.3);
+  }
+  .tl-item.completed::after {
+    content: ''; position: absolute; left: -29px; top: 22px;
+    width: 9px; height: 5px; border-left: 2px solid var(--bg);
+    border-bottom: 2px solid var(--bg); transform: rotate(-45deg);
+    transition: all 0.3s; pointer-events: none;
+  }
+  .tl-item.completed .tl-time { color: var(--text-dim); text-decoration: line-through; text-decoration-color: rgba(255,221,0,0.3); }
+  .tl-item.completed .tl-desc { color: var(--text-dim); opacity: 0.5; }
+  .tl-item.completed .tl-desc b { color: var(--text-dim); }
+  .tl-item.completed .tl-key-label { opacity: 0.4; }
+  /* 打卡提示 */
+  .tl-check-hint {
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    font-size: 11px; color: var(--text-dim); opacity: 0;
+    transition: opacity 0.3s; letter-spacing: 1px; pointer-events: none;
+  }
+  .tl-item:hover .tl-check-hint { opacity: 0.6; }
+  .tl-item.completed .tl-check-hint { opacity: 0; }
+  .tl-item.completed .tl-check-hint-done { opacity: 0.8; color: var(--ng-yellow); }
+  .tl-check-hint-done { display: none; }
+  .tl-item.completed .tl-check-hint { display: none; }
+  .tl-item.completed .tl-check-hint-done { display: inline; }
+  /* 重点项用星标标记，不用黄点 */
+  .timeline-progress {
+    position: absolute; left: 7px; top: 8px; width: 1px;
+    background: linear-gradient(to bottom, var(--ng-yellow), var(--ng-yellow));
+    transition: height 0.5s ease; pointer-events: none; z-index: 1;
+  }
+  .day-progress {
+    margin-left: auto; display: flex; align-items: center; gap: 10px;
+  }
+  .day-progress-bar {
+    width: 80px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden;
+  }
+  .day-progress-fill {
+    height: 100%; background: var(--ng-yellow); border-radius: 2px;
+    width: 0%; transition: width 0.5s ease;
+  }
+  .day-progress-text {
+    font-size: 12px; color: var(--ng-yellow); font-weight: 600; letter-spacing: 0.5px;
+    font-family: var(--serif); white-space: nowrap;
+  }
+  .daily-overall-progress {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 36px;
+    padding: 18px 24px; background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .daily-overall-progress .label {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600; white-space: nowrap;
+  }
+  .daily-overall-progress .bar {
+    flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .daily-overall-progress .fill {
+    height: 100%; background: linear-gradient(90deg, var(--ng-yellow), #ffc107);
+    border-radius: 3px; width: 0%; transition: width 0.5s ease;
+  }
+  .daily-overall-progress .count {
+    font-size: 15px; color: var(--ng-yellow); font-weight: 700;
+    font-family: var(--serif); white-space: nowrap;
+  }
 
   /* Right column - spot cards */
   .day-spots { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 90px; }
@@ -681,28 +774,33 @@
 <section id="daily">
   <div class="sec-num">— 03</div>
   <h2 class="sec-title">每日行程</h2>
-  <p class="sec-desc">左侧时间线，右侧景点实拍，一目了然。</p>
+  <p class="sec-desc">点击时间线上的圆点打卡，实时追踪行程进度。</p>
   <div class="divider"></div>
+  <div class="daily-overall-progress">
+    <span class="label">总进度</span>
+    <div class="bar"><div class="fill" id="overall-progress-fill"></div></div>
+    <span class="count" id="overall-progress-count">0 / 0</span>
+  </div>
 
   <!-- D1 -->
   <div class="day-block">
     <div class="day-header"><div class="day-tag">D1</div><div class="day-info"><h3>通辽 → 乌拉盖草原</h3><p>8月20日 周四 · 车程约 5 小时 · 住乞颜部落蒙古包</p></div></div>
     <div class="day-content">
       <div class="timeline">
-        <div class="tl-item"><span class="tl-time">06:00</span><span class="tl-desc">抵达通辽站，找导游集合</span></div>
-        <div class="tl-item"><span class="tl-time">06:00–07:00</span><span class="tl-desc">集合等人、简单早餐、放行李</span></div>
-        <div class="tl-item"><span class="tl-time">07:00</span><span class="tl-desc">出发前往乌拉盖，全程约 380 公里</span></div>
-        <div class="tl-item highlight"><span class="tl-time">07:00–09:30</span><span class="tl-desc">车程，途经<b>扎鲁特山地草原</b>【车览】</span></div>
-        <div class="tl-item"><span class="tl-time">09:30–10:00</span><span class="tl-desc">途中休息站</span></div>
-        <div class="tl-item"><span class="tl-time">10:00–12:00</span><span class="tl-desc">继续车程</span></div>
-        <div class="tl-item"><span class="tl-time">12:00–13:00</span><span class="tl-desc">午餐（含）</span></div>
-        <div class="tl-item highlight"><span class="tl-time">13:00–14:30</span><span class="tl-desc"><b>野狼谷景区</b>（赠玻璃栈道观狼）</span></div>
-        <div class="tl-item highlight"><span class="tl-time">14:45–15:45</span><span class="tl-desc"><b>兵团小镇</b></span></div>
-        <div class="tl-item highlight"><span class="tl-time">16:00–17:00</span><span class="tl-desc"><b>乌拉盖湖 + 在水一方</b></span></div>
-        <div class="tl-item highlight"><span class="tl-time">17:30</span><span class="tl-desc">到达<b>乞颜部落</b>，下马酒仪式</span></div>
-        <div class="tl-item"><span class="tl-time">18:00–19:30</span><span class="tl-desc">晚餐（烤全羊 / 烤羊腿）</span></div>
-        <div class="tl-item"><span class="tl-time">20:00–21:30</span><span class="tl-desc">篝火晚会（遇雨可能取消）</span></div>
-        <div class="tl-item"><span class="tl-time">21:30 后</span><span class="tl-desc">看星空，入住豪华蒙古包</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">06:00</span><span class="tl-desc">抵达通辽站，找导游集合</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">06:00–07:00</span><span class="tl-desc">集合等人、简单早餐、放行李</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">07:00</span><span class="tl-desc">出发前往乌拉盖，全程约 380 公里</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">07:00–09:30</span><span class="tl-desc">车程，途经<b>扎鲁特山地草原</b>【车览】</span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">09:30–10:00</span><span class="tl-desc">途中休息站</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">10:00–12:00</span><span class="tl-desc">继续车程</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">12:00–13:00</span><span class="tl-desc">午餐（含）</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">13:00–14:30</span><span class="tl-desc"><b>野狼谷景区</b>（赠玻璃栈道观狼）</span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">14:45–15:45</span><span class="tl-desc"><b>兵团小镇</b></span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">16:00–17:00</span><span class="tl-desc"><b>乌拉盖湖 + 在水一方</b></span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">17:30</span><span class="tl-desc">到达<b>乞颜部落</b>，下马酒仪式</span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">18:00–19:30</span><span class="tl-desc">晚餐（烤全羊 / 烤羊腿）</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">20:00–21:30</span><span class="tl-desc">篝火晚会（遇雨可能取消）</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">21:30 后</span><span class="tl-desc">看星空，入住豪华蒙古包</span></div>
       </div>
       <div class="day-spots">
         <div class="spot-mini">
@@ -758,15 +856,15 @@
     <div class="day-header"><div class="day-tag">D2</div><div class="day-info"><h3>乌拉盖 → 通辽</h3><p>8月21日 周五 · 车程约 6 小时 · 住通辽市区酒店</p></div></div>
     <div class="day-content">
       <div class="timeline">
-        <div class="tl-item"><span class="tl-time">05:30–06:30</span><span class="tl-desc">自愿早起看草原日出</span></div>
-        <div class="tl-item"><span class="tl-time">07:00–08:00</span><span class="tl-desc">早餐、退房</span></div>
-        <div class="tl-item"><span class="tl-time">08:00–08:20</span><span class="tl-desc">前往九曲玉龙湾（很近）</span></div>
-        <div class="tl-item highlight"><span class="tl-time">08:20–10:00</span><span class="tl-desc"><b>九曲玉龙湾</b>游玩（电瓶车 30 元/人自理）</span></div>
-        <div class="tl-item"><span class="tl-time">10:00–11:00</span><span class="tl-desc">前往可汗山（约 1 小时车程）</span></div>
-        <div class="tl-item highlight"><span class="tl-time">11:00–12:00</span><span class="tl-desc"><b>可汗山景区</b></span></div>
-        <div class="tl-item"><span class="tl-time">12:00–13:00</span><span class="tl-desc">午餐（含）</span></div>
-        <div class="tl-item"><span class="tl-time">13:00–18:00</span><span class="tl-desc">返回通辽（约 380 公里，4.5–5 小时车程）</span></div>
-        <div class="tl-item"><span class="tl-time">18:00 后</span><span class="tl-desc">入住通辽酒店，晚餐自理，可去市区吃烧烤 / 手把肉</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">05:30–06:30</span><span class="tl-desc">自愿早起看草原日出</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">07:00–08:00</span><span class="tl-desc">早餐、退房</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">08:00–08:20</span><span class="tl-desc">前往九曲玉龙湾（很近）</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">08:20–10:00</span><span class="tl-desc"><b>九曲玉龙湾</b>游玩（电瓶车 30 元/人自理）</span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">10:00–11:00</span><span class="tl-desc">前往可汗山（约 1 小时车程）</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">11:00–12:00</span><span class="tl-desc"><b>可汗山景区</b></span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">12:00–13:00</span><span class="tl-desc">午餐（含）</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">13:00–18:00</span><span class="tl-desc">返回通辽（约 380 公里，4.5–5 小时车程）</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">18:00 后</span><span class="tl-desc">入住通辽酒店，晚餐自理，可去市区吃烧烤 / 手把肉</span></div>
       </div>
       <div class="day-spots">
         <div class="spot-mini">
@@ -810,12 +908,12 @@
     <div class="day-header"><div class="day-tag">D3</div><div class="day-info"><h3>通辽 → 银沙湾沙漠 → 通辽</h3><p>8月22日 周六 · 车程约 5 小时 · 住通辽市区酒店</p></div></div>
     <div class="day-content">
       <div class="timeline">
-        <div class="tl-item"><span class="tl-time">07:00–08:00</span><span class="tl-desc">早餐、退房，行李放车上</span></div>
-        <div class="tl-item"><span class="tl-time">08:00–10:30</span><span class="tl-desc">前往银沙湾（约 140 公里，2–2.5 小时）</span></div>
-        <div class="tl-item highlight"><span class="tl-time">10:30–14:30</span><span class="tl-desc"><b>银沙湾沙漠</b>游玩（4 小时），含滑沙不限次、射箭 10 支</span></div>
-        <div class="tl-item"><span class="tl-time">14:30–15:00</span><span class="tl-desc">简单午餐（D3 不含正餐，自备零食）</span></div>
-        <div class="tl-item"><span class="tl-time">15:00–17:00</span><span class="tl-desc">返回通辽（2–2.5 小时）</span></div>
-        <div class="tl-item"><span class="tl-time">17:00–17:30</span><span class="tl-desc">送到酒店办理入住，晚餐自理</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">07:00–08:00</span><span class="tl-desc">早餐、退房，行李放车上</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">08:00–10:30</span><span class="tl-desc">前往银沙湾（约 140 公里，2–2.5 小时）</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">10:30–14:30</span><span class="tl-desc"><b>银沙湾沙漠</b>游玩（4 小时），含滑沙不限次、射箭 10 支</span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">14:30–15:00</span><span class="tl-desc">简单午餐（D3 不含正餐，自备零食）</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">15:00–17:00</span><span class="tl-desc">返回通辽（2–2.5 小时）</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">17:00–17:30</span><span class="tl-desc">送到酒店办理入住，晚餐自理</span></div>
       </div>
       <div class="day-spots">
         <div class="spot-mini">
@@ -847,12 +945,12 @@
     <div class="day-header"><div class="day-tag">D4</div><div class="day-info"><h3>通辽 → 沈阳 → 大连北</h3><p>8月23日 周日 · 返程日</p></div></div>
     <div class="day-single">
       <div class="timeline">
-        <div class="tl-item"><span class="tl-time">上午</span><span class="tl-desc">酒店早餐、退房，自由活动。可在通辽市区逛逛、买特产（牛肉干、奶食品）</span></div>
-        <div class="tl-item"><span class="tl-time">11:30–12:00</span><span class="tl-desc">前往通辽站，预留充足时间安检进站</span></div>
-        <div class="tl-item highlight"><span class="tl-time">12:41–14:20</span><span class="tl-desc"><b>C1112</b> 通辽 → 沈阳，历时 1 小时 39 分，二等座</span></div>
-        <div class="tl-item"><span class="tl-time">14:20–14:53</span><span class="tl-desc">沈阳站中转，<b>中转时间 33 分钟</b>，走便捷换乘通道，不要出站</span></div>
-        <div class="tl-item highlight"><span class="tl-time">14:53–16:27</span><span class="tl-desc"><b>G714</b> 沈阳 → 大连北，历时 1 小时 34 分，二等座</span></div>
-        <div class="tl-item"><span class="tl-time">16:27</span><span class="tl-desc">抵达大连北站，全程结束</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">上午</span><span class="tl-desc">酒店早餐、退房，自由活动。可在通辽市区逛逛、买特产（牛肉干、奶食品）</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">11:30–12:00</span><span class="tl-desc">前往通辽站，预留充足时间安检进站</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">12:41–14:20</span><span class="tl-desc"><b>C1112</b> 通辽 → 沈阳，历时 1 小时 39 分，二等座</span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">14:20–14:53</span><span class="tl-desc">沈阳站中转，<b>中转时间 33 分钟</b>，走便捷换乘通道，不要出站</span></div>
+        <div class="tl-item highlight"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">14:53–16:27</span><span class="tl-desc"><b>G714</b> 沈阳 → 大连北，历时 1 小时 34 分，二等座</span><span class="tl-key-label">重点</span></div>
+        <div class="tl-item"><span class="tl-check-hint">点击打卡</span><span class="tl-check-hint tl-check-hint-done">✓ 已完成</span><span class="tl-time">16:27</span><span class="tl-desc">抵达大连北站，全程结束</span></div>
       </div>
       <div class="info-box blue">
         <h4>车次信息</h4>
@@ -1121,6 +1219,30 @@
 </footer>
 
 <script>
+// 导航栏滚动高亮
+(function() {
+  const navLinks = document.querySelectorAll('.nav a');
+  const sections = [];
+  navLinks.forEach(function(link) {
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const sec = document.querySelector(href);
+      if (sec) sections.push({ link: link, section: sec });
+    }
+  });
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + 120;
+    let current = sections[0];
+    sections.forEach(function(item) {
+      if (item.section.offsetTop <= scrollPos) current = item;
+    });
+    navLinks.forEach(function(l) { l.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('load', updateActiveNav);
+  updateActiveNav();
+})();
 // 打包清单交互
 (function() {
   const allCheckboxes = document.querySelectorAll('.pack-item input[type=checkbox]');
@@ -1168,6 +1290,131 @@
   });
 
   updateProgress();
+})();
+
+// 行程时间线交互打卡
+(function() {
+  const STORAGE_KEY = 'timelineProgress';
+  const dayBlocks = document.querySelectorAll('.day-block');
+  const allItems = document.querySelectorAll('.tl-item');
+  const overallFill = document.getElementById('overall-progress-fill');
+  const overallCount = document.getElementById('overall-progress-count');
+
+  // 为每个 tl-item 分配唯一 id
+  let itemIndex = 0;
+  allItems.forEach(function(item) {
+    item.setAttribute('data-tl-id', 'tl-' + itemIndex);
+    itemIndex++;
+  });
+
+  // 为每天添加进度徽章
+  dayBlocks.forEach(function(block, dayIdx) {
+    const header = block.querySelector('.day-header');
+    if (!header) return;
+    const badge = document.createElement('div');
+    badge.className = 'day-progress';
+    badge.innerHTML = '<div class="day-progress-bar"><div class="day-progress-fill"></div></div>' +
+      '<span class="day-progress-text">0/0</span>';
+    header.appendChild(badge);
+
+    // 为时间线添加进度线
+    const timeline = block.querySelector('.timeline');
+    if (timeline) {
+      const progressLine = document.createElement('div');
+      progressLine.className = 'timeline-progress';
+      timeline.appendChild(progressLine);
+    }
+  });
+
+  // 加载保存的状态
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch(e) {}
+
+  // 应用已保存的状态
+  allItems.forEach(function(item) {
+    if (saved[item.getAttribute('data-tl-id')]) {
+      item.classList.add('completed');
+    }
+  });
+
+  function updateAllProgress() {
+    let totalCompleted = 0;
+    const totalAll = allItems.length;
+
+    dayBlocks.forEach(function(block) {
+      const items = block.querySelectorAll('.tl-item');
+      const completed = block.querySelectorAll('.tl-item.completed');
+      const count = completed.length;
+      const total = items.length;
+      totalCompleted += count;
+
+      // 更新天进度徽章
+      const fill = block.querySelector('.day-progress-fill');
+      const text = block.querySelector('.day-progress-text');
+      if (fill && text) {
+        const pct = total > 0 ? (count / total * 100) : 0;
+        fill.style.width = pct + '%';
+        text.textContent = count + '/' + total;
+      }
+
+      // 更新时间线进度线高度
+      const timeline = block.querySelector('.timeline');
+      const progressLine = block.querySelector('.timeline-progress');
+      if (timeline && progressLine && total > 0) {
+        if (count === 0) {
+          progressLine.style.height = '0px';
+        } else {
+          // 计算到最后一个完成项的位置
+          let lastCompletedIdx = -1;
+          items.forEach(function(item, idx) {
+            if (item.classList.contains('completed')) lastCompletedIdx = idx;
+          });
+          if (lastCompletedIdx >= 0) {
+            const lastItem = items[lastCompletedIdx];
+            const timelineRect = timeline.getBoundingClientRect();
+            const itemRect = lastItem.getBoundingClientRect();
+            const circleCenter = itemRect.top + 11 + 7.5 - timelineRect.top; // 11=top offset, 7.5=half circle
+            progressLine.style.height = circleCenter + 'px';
+          }
+        }
+      }
+    });
+
+    // 更新总进度
+    if (overallFill && overallCount) {
+      const pct = totalAll > 0 ? (totalCompleted / totalAll * 100) : 0;
+      overallFill.style.width = pct + '%';
+      overallCount.textContent = totalCompleted + ' / ' + totalAll;
+    }
+  }
+
+  // 点击切换完成状态
+  allItems.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      // 避免点击链接等元素时触发
+      if (e.target.tagName === 'A') return;
+      item.classList.toggle('completed');
+      const id = item.getAttribute('data-tl-id');
+      if (item.classList.contains('completed')) {
+        saved[id] = true;
+      } else {
+        delete saved[id];
+      }
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e) {}
+      updateAllProgress();
+    });
+  });
+
+  // 窗口大小变化时重新计算进度线
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(updateAllProgress, 200);
+  });
+
+  updateAllProgress();
 })();
 </script>
 
